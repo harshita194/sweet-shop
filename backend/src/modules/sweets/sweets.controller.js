@@ -60,8 +60,9 @@ export const deleteSweet = async (req, res) => {
       return res.status(404).json({ message: "Sweet not found" });
     }
 
-    // 🔥 inventory cleanup
-    await Inventory.deleteOne({ sweet: sweet._id });
+    if (sweet) {
+      await Inventory.findOneAndDelete({ sweet: sweet._id });
+    }
 
     res.json({ message: "Sweet deleted" });
   } catch (err) {
