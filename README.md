@@ -376,35 +376,51 @@ VITE_API_URL=https://your-backend-url.com/api
 ## 📸 Screenshots
 
 ### Home Page
+
 The public homepage displays all available products with search and filter functionality. Users can browse without logging in.
 
 <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 14 43 AM" src="https://github.com/user-attachments/assets/33ff7a29-aa27-42d7-b7e2-fe6faaee0bb1" />
 
+
 ### Login/Register
+
 
 <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 16 18 AM" src="https://github.com/user-attachments/assets/ccfb88e0-df0a-43fd-a603-7e9a0afd921f" />
 
+
 <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 15 38 AM" src="https://github.com/user-attachments/assets/6cb14c9e-f353-4f0d-8f9c-04a06a6d23a0" />
+
 
 ### Dashboard
 
+
 <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 16 59 AM" src="https://github.com/user-attachments/assets/30b4de8b-4920-40b6-8b46-5f7a1a24acec" />
 
+
 ### Admin Panel
+
 Admin users have access to a comprehensive admin panel for:
+
 - Adding new products
+
 
   <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 18 50 AM" src="https://github.com/user-attachments/assets/dfe7ec97-08cc-4488-aae6-a84d5a7be00e" />
 
+
 - Editing existing products
 
+
   <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 19 32 AM" src="https://github.com/user-attachments/assets/256e0839-5dcb-443b-b159-9477752a2007" />
+
  
 - Deleting products and Restocking inventory and Managing product details
 
+
   <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 20 08 AM" src="https://github.com/user-attachments/assets/8924abb7-7c65-4bc7-9ff7-1c56d75ddf13" />
 
+
   <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 22 42 AM" src="https://github.com/user-attachments/assets/a8801c61-f4a5-40a7-a77b-f973c6d737e7" />
+
 
 ### Product Cards
 Each product displays:
