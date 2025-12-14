@@ -1,8 +1,9 @@
 import Inventory from "./inventory.model.js";
 
 export const getInventory = async (req, res) => {
-  const inventory = await Inventory.find().populate("sweet");
-  res.json(inventory);
+  // const inventory = await Inventory.find().populate("sweet");
+  // res.json(inventory);
+  res.status(200).json([]);
 };
 
 export const addOrUpdateInventory = async (req, res) => {
