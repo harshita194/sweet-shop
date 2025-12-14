@@ -1,24 +1,6 @@
 # 🍬 Sweet Shop Management System
 
-A full-stack e-commerce web application for managing an Indian sweet shop inventory, built with the MERN stack (MongoDB, Express, React, Node.js). This project demonstrates Test-Driven Development (TDD), RESTful API design, JWT authentication, and modern development workflows including AI tool usage.
-
-**Specializing in:** Indian Sweets, Chocolates, Ice Creams, Shakes, Cakes, and Cookies  
-**Currency:** All prices in Indian Rupees (₹)
-
-## 📋 Table of Contents
-
-- [Project Overview](#project-overview)
-- [Core Requirements](#core-requirements)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [API Endpoints](#api-endpoints)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Screenshots](#screenshots)
-- [My AI Usage](#my-ai-usage)
-- [Git & Version Control](#git--version-control)
+A full-stack e-commerce web application for managing an sweet shop inventory, built with the MERN stack (MongoDB, Express, React, Node.js). This project demonstrates Test-Driven Development (TDD), RESTful API design, JWT authentication, and modern development workflows including AI tool usage.
 
 ## 🎯 Project Overview
 
@@ -31,7 +13,6 @@ This project is a complete implementation of a **Sweet Shop Management System** 
 - ✅ **Role-Based Access**: Admin and user roles with protected routes
 - ✅ **Modern UI**: Responsive, professional e-commerce design
 - ✅ **Comprehensive Testing**: 40+ test cases covering all endpoints
-- ✅ **Production Ready**: Deployed and accessible online
 
 ## 📝 Core Requirements
 
@@ -123,9 +104,6 @@ This project is a complete implementation of a **Sweet Shop Management System** 
 - **Vite** as build tool
 - **CSS3** for styling
 
-### DevOps & Deployment
-- **Vercel** / **Netlify** for frontend deployment
-- **Railway** / **Render** / **Heroku** for backend deployment
 - **MongoDB Atlas** for cloud database
 - **Git** for version control
 
@@ -379,58 +357,7 @@ All tests pass successfully. Test results demonstrate:
 - ✅ Authentication and authorization working
 - ✅ Error handling functioning properly
 - ✅ Validation working as expected
-
-## 🚀 Deployment
-
-This project is deployed to showcase DevOps skills. The application is live and accessible online.
-
-### Deployment Architecture
-
-**Frontend:** Deployed on Vercel/Netlify  
-**Backend:** Deployed on Railway/Render/Heroku  
-**Database:** MongoDB Atlas (Cloud)
-
-### Live Application
-
-🌐 **Frontend:** [Your Frontend URL]  
-🔗 **Backend API:** [Your Backend URL]  
-📊 **Database:** MongoDB Atlas
-
-### Deployment Steps
-
-#### Frontend Deployment (Vercel)
-
-1. **Build the frontend:**
-   ```bash
-   cd frontend
-   npm run build
-   ```
-
-2. **Deploy to Vercel:**
-   - Push code to GitHub
-   - Connect repository to Vercel
-   - Set environment variable: `VITE_API_URL=https://your-backend-url.com/api`
-   - Deploy
-
-#### Backend Deployment (Railway/Render)
-
-1. **Prepare for deployment:**
-   - Ensure all environment variables are set
-   - Update CORS settings for production domain
-   - Test locally with production-like settings
-
-2. **Deploy to Railway:**
-   - Connect GitHub repository
-   - Set environment variables (MONGO_URI, JWT_SECRET, PORT)
-   - Deploy
-
-3. **Deploy to Render:**
-   - Create new Web Service
-   - Connect repository
-   - Set build command: `cd backend && npm install`
-   - Set start command: `cd backend && node server.js`
-   - Add environment variables
-
+     
 ### Environment Variables
 
 **Backend (.env):**
@@ -446,33 +373,38 @@ NODE_ENV=production
 VITE_API_URL=https://your-backend-url.com/api
 ```
 
-### DevOps Best Practices Implemented
-
-- ✅ **Environment Variables**: Secure configuration management
-- ✅ **CI/CD**: Automated deployment pipelines
-- ✅ **Database Migration**: Seeding scripts for consistent data
-- ✅ **Error Monitoring**: Production error handling
-- ✅ **Scalability**: Cloud-based infrastructure
-- ✅ **Security**: Environment-based secrets management
-
 ## 📸 Screenshots
 
 ### Home Page
 The public homepage displays all available products with search and filter functionality. Users can browse without logging in.
 
+<img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 14 43 AM" src="https://github.com/user-attachments/assets/33ff7a29-aa27-42d7-b7e2-fe6faaee0bb1" />
+
 ### Login/Register
-Clean, modern authentication forms with validation and error handling.
+
+<img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 16 18 AM" src="https://github.com/user-attachments/assets/ccfb88e0-df0a-43fd-a603-7e9a0afd921f" />
+
+<img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 15 38 AM" src="https://github.com/user-attachments/assets/6cb14c9e-f353-4f0d-8f9c-04a06a6d23a0" />
 
 ### Dashboard
-Authenticated users see a personalized dashboard with all products, search functionality, and purchase options.
+
+<img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 16 59 AM" src="https://github.com/user-attachments/assets/30b4de8b-4920-40b6-8b46-5f7a1a24acec" />
 
 ### Admin Panel
 Admin users have access to a comprehensive admin panel for:
 - Adding new products
+
+  <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 18 50 AM" src="https://github.com/user-attachments/assets/dfe7ec97-08cc-4488-aae6-a84d5a7be00e" />
+
 - Editing existing products
-- Deleting products
-- Restocking inventory
-- Managing product details
+
+  <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 19 32 AM" src="https://github.com/user-attachments/assets/256e0839-5dcb-443b-b159-9477752a2007" />
+ 
+- Deleting products and Restocking inventory and Managing product details
+
+  <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 20 08 AM" src="https://github.com/user-attachments/assets/8924abb7-7c65-4bc7-9ff7-1c56d75ddf13" />
+
+  <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 22 42 AM" src="https://github.com/user-attachments/assets/a8801c61-f4a5-40a7-a77b-f973c6d737e7" />
 
 ### Product Cards
 Each product displays:
@@ -482,8 +414,6 @@ Each product displays:
 - Stock quantity
 - Purchase button (disabled when out of stock)
 - Admin actions (Edit, Restock, Delete)
-
-*Note: Add screenshots to the repository for demonstration purposes.*
 
 ## 🤖 My AI Usage
 
@@ -565,41 +495,6 @@ and middleware, then manually added validation logic and error handling.
 Co-authored-by: Cursor AI <ai@cursor.sh>
 ```
 
-## 📝 Git & Version Control
-
-### Commit History
-
-The project follows a clear commit history demonstrating:
-- **TDD Approach**: Commits show Red-Green-Refactor pattern
-- **Feature Development**: Each feature developed incrementally
-- **AI Usage**: Transparent documentation of AI assistance
-- **Clean Code**: Regular refactoring and code quality improvements
-
-### Commit Message Format
-
-```
-type: Short description
-
-Detailed explanation of changes.
-Any additional context or notes.
-
-Co-authored-by: AI Tool Name <ai@tool.com> (if applicable)
-```
-
-**Types used:**
-- `feat`: New feature
-- `fix`: Bug fix
-- `test`: Adding or updating tests
-- `refactor`: Code refactoring
-- `docs`: Documentation updates
-- `style`: Code style changes
-- `chore`: Maintenance tasks
-
-### Branch Strategy
-- `main`: Production-ready code
-- `develop`: Development branch
-- Feature branches for new features
-
 ## 🎯 Assignment Compliance
 
 This project fully complies with all assignment requirements:
@@ -632,37 +527,3 @@ This project fully complies with all assignment requirements:
 ✅ **Git & Version Control**
 - Frequent commits with clear messages
 - Transparent AI usage documentation
-
-✅ **AI Usage Policy**
-- AI co-authorship in commits
-- Detailed AI usage documentation
-- Transparent about AI assistance
-
-## 📝 License
-
-This project is created for educational purposes as part of a TDD Kata assignment.
-
-## 👤 Author
-
-Developed as part of a Test-Driven Development assignment, demonstrating:
-- Full-stack development skills
-- Test-Driven Development (TDD)
-- RESTful API design
-- JWT authentication
-- React development
-- MongoDB database management
-- Modern development workflows
-- DevOps and deployment skills
-- Responsible AI tool usage
-
----
-
-**Note**: This project demonstrates proficiency in:
-- Test-Driven Development (TDD)
-- RESTful API design
-- JWT authentication
-- React development
-- MongoDB database management
-- Modern development workflows
-- DevOps and deployment
-- Responsible AI tool usage
