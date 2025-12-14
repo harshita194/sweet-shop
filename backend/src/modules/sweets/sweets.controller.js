@@ -35,7 +35,8 @@ export const updateSweet = async (req, res) => {
       req.body,
       { new: true }
     );
-    if (sweet && req.body.quantity) {
+
+    if (sweet && req.body.quantity !== undefined) {
         await Inventory.findOneAndUpdate(
           { sweet: sweet._id },
           { $inc: { quantity: req.body.quantity } },
@@ -53,7 +54,15 @@ export const updateSweet = async (req, res) => {
  */
 export const deleteSweet = async (req, res) => {
   try {
-    await Sweet.findByIdAndDelete(req.params.id);
+    const sweet = await Sweet.findByIdAndDelete(req.params.id);
+
+    if (!sweet) {
+      return res.status(404).json({ message: "Sweet not found" });
+    }
+
+    // 🔥 inventory cleanup
+    await Inventory.deleteOne({ sweet: sweet._id });
+
     res.json({ message: "Sweet deleted" });
   } catch (err) {
     res.status(400).json({ message: "Failed to delete sweet" });
