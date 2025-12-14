@@ -422,6 +422,9 @@ Admin users have access to a comprehensive admin panel for:
   <img width="1440" height="900" alt="Screenshot 2025-12-15 at 2 22 42 AM" src="https://github.com/user-attachments/assets/a8801c61-f4a5-40a7-a77b-f973c6d737e7" />
 
 
+   <img width="729" height="443" alt="Screenshot 2025-12-15 at 2 45 01 AM" src="https://github.com/user-attachments/assets/67e2e6d4-68af-489c-b4ef-deec9aaa528e" />
+
+
 ### Product Cards
 Each product displays:
 - Product image
