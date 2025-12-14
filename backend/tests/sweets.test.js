@@ -20,6 +20,7 @@ describe("Sweets API", () => {
         name: "Ladoo",
         price: 50,
         category: "Indian",
+        quantity: 0,
       });
 
     expect(res.statusCode).toBe(201);
