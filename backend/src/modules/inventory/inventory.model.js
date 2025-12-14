@@ -6,12 +6,12 @@ const inventorySchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Sweet",
       required: true,
-      unique: true
+     // unique: true
     },
     quantity: {
       type: Number,
       required: true,
-      min: 0
+      // min: 0
     }
   },
   { timestamps: true }

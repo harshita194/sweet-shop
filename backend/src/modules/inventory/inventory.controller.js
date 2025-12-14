@@ -1,5 +1,5 @@
 import Inventory from "./inventory.model.js";
-
+import mongoose from "mongoose";
 export const getInventory = async (req, res) => {
   // const inventory = await Inventory.find().populate("sweet");
   // res.json(inventory);
@@ -19,6 +19,6 @@ export const addOrUpdateInventory = async (req, res) => {
     { upsert: true, new: true }
   );
 
-  res.status(200).json(inventory);
+  res.status(201).json(inventory);
 };
 
