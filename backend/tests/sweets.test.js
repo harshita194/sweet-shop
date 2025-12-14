@@ -26,5 +26,13 @@ describe("Sweets API", () => {
     expect(res.statusCode).toBe(201);
     expect(res.body.name).toBe("Ladoo");
   });
+  
+  it("should return all sweets", async () => {
+  const res = await request(app).get("/api/sweets");
+
+    expect(res.statusCode).toBe(201);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
 });
 
