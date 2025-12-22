@@ -1,70 +1,96 @@
 import request from "supertest";
 import jwt from "jsonwebtoken";
-import app from "../src/app.js";
 import mongoose from "mongoose";
-import connectDB from "../src/config/db.js";
+import app from "../src/app.js";
 import User from "../src/modules/auth/auth.model.js";
-import dotenv from "dotenv";
-
-dotenv.config();
+import Inventory from "../src/modules/inventory/inventory.model.js";
 
 describe("Inventory API", () => {
-  let token;
-  let testUserId;
+  let adminToken;
+  let userToken;
 
   beforeAll(async () => {
-    // Connect to test database
-    try {
-      await connectDB();
-    } catch (error) {
-      console.error("Database connection failed:", error);
-    }
-    
-    // Create test user
+    await User.deleteMany({});
+
+    const admin = await User.create({
+      name: "Admin",
+      email: "admin@inventory.com",
+      password: "hashed",
+      role: "admin",
+    });
+
     const user = await User.create({
-      name: "Test User",
-      email: "inventorytest@example.com",
-      password: "hashedpassword",
+      name: "User",
+      email: "user@inventory.com",
+      password: "hashed",
       role: "user",
     });
-    testUserId = user._id;
-    
-    token = jwt.sign(
-      { id: testUserId },
-      process.env.JWT_SECRET
-    );
-  }, 30000);
-  
-  afterAll(async () => {
-    await User.deleteMany({});
-    if (mongoose.connection.readyState === 1) {
-      await mongoose.connection.close();
-    }
-  }, 30000);
 
-  it("should return inventory list", async () => {
-    const res = await request(app)
-      .get("/api/inventory")
-      .set("Authorization", `Bearer ${token}`);
-     
-    expect(res.statusCode).toBe(200);
-    expect(Array.isArray(res.body)).toBe(true);
+    adminToken = jwt.sign({ id: admin._id }, process.env.JWT_SECRET);
+    userToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
   });
 
-  it("should create a new inventory item", async () => {
-    const fakeSweetId = new mongoose.Types.ObjectId(); 
+  it("allows admin to view inventory", async () => {
+    const res = await request(app)
+      .get("/api/inventory")
+      .set("Authorization", `Bearer ${adminToken}`);
+
+    expect(res.statusCode).toBe(200);
+  });
+
+  it("blocks inventory access without token", async () => {
+    const res = await request(app).get("/api/inventory");
+    expect(res.statusCode).toBe(401);
+  });
+
+  it("blocks inventory access for non-admin", async () => {
+    const res = await request(app)
+      .get("/api/inventory")
+      .set("Authorization", `Bearer ${userToken}`);
+
+    expect(res.statusCode).toBe(403);
+  });
+
+  it("creates inventory item as admin", async () => {
     const res = await request(app)
       .post("/api/inventory")
-      .set("Authorization", `Bearer ${token}`)
+      .set("Authorization", `Bearer ${adminToken}`)
       .send({
-        sweetId: fakeSweetId,
+        sweetId: new mongoose.Types.ObjectId(),
         quantity: 10,
       });
 
     expect(res.statusCode).toBe(201);
     expect(res.body.quantity).toBe(10);
-    expect(res.body.sweet).toBe(fakeSweetId.toString());
   });
 
-});
+  it("rejects inventory creation with missing fields", async () => {
+    const res = await request(app)
+      .post("/api/inventory")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({});
 
+    expect(res.statusCode).toBe(400);
+  });
+
+  it("updates inventory item as admin", async () => {
+    const sweetId = new mongoose.Types.ObjectId();
+
+    await Inventory.create({
+    sweet: sweetId,
+    quantity: 10,
+    });
+
+    const res = await request(app)
+      .post("/api/inventory")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({
+        sweetId,
+        quantity: 20,
+      });
+
+    expect(res.statusCode).toBe(201);
+    expect(res.body.quantity).toBe(20);
+    expect(res.body.sweet.toString()).toBe(sweetId.toString());
+  });
+});
